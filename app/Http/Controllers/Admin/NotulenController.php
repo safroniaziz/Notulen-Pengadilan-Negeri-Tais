@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Notulen;
+use App\Models\Pimpinan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use PDF;
@@ -25,7 +26,7 @@ class NotulenController extends Controller
 
     public function cetak($id){
         // return $id;
-        $ketua = User::where('level_user','ketua')->first();
+        $ketua = Pimpinan::where('status','aktif')->first();
         $data = Notulen::join('users','users.id','notulens.notulis_id')->where('notulens.id',$id)->first();
         // return $data;
         // return $data;

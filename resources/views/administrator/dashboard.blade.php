@@ -40,7 +40,7 @@
     </header>
     <div class="panel-body" style="border-top: 1px solid #eee; padding:15px; background:white;">
         <div class="row" style="margin-right:-15px; margin-left:-15px;">
-            <div class="col-md-12">Selamat datang <strong> {{ Auth::user()->pegNama }} </strong> di halaman guru pada<b>  Sistem Informasi Kepegawaian Madrasah Islam Negeri Insan Cendikia (MAN IC) Bengkulu Tengah</b></div>
+            <div class="col-md-12">Selamat datang <strong> {{ Auth::user()->pegNama }} </strong> di halaman administrator<b>  Sistem Informasi Notulen Rapat Pengadilan Negeri Tais</b></div>
         </div>
     </div>
 </section>

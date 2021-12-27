@@ -10,6 +10,10 @@
     <a href="{{ route('admin.notulen') }}"><i class="fa fa-list"></i>Data Notulen </a>
 </li>
 
+<li>
+    <a href="{{ route('admin.pimpinan') }}"><i class="fa fa-user"></i>Pimpinan Rapat </a>
+</li>
+
 
 <li style="padding-left:2px;">
     <a class="dropdown-item" href="{{ route('logout') }}"

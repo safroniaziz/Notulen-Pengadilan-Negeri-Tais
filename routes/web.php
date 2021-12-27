@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\NotulenController;
 use App\Http\Controllers\Admin\NotulisController;
+use App\Http\Controllers\Admin\PimpinanRapatController;
 use App\Http\Controllers\Notulis\ManajemenNotulenController;
 use App\Http\Controllers\Notulis\NotulisDashboardController;
 use Illuminate\Support\Facades\Auth;
@@ -54,4 +55,12 @@ Route::group(['prefix'  => 'notulis/manajemen_notulen'],function(){
     Route::get('/add',[ManajemenNotulenController::class, 'add'])->name('notulis.notulen.add');
     Route::post('/',[ManajemenNotulenController::class, 'post'])->name('notulis.notulen.post');
     Route::delete('/{id}',[ManajemenNotulenController::class, 'delete'])->name('notulis.notulen.delete');
+});
+
+Route::group(['prefix'  => 'administrator/manajemen_pimpinan'],function(){
+    Route::get('/',[PimpinanRapatController::class, 'index'])->name('admin.pimpinan');
+    Route::post('/',[PimpinanRapatController::class, 'post'])->name('admin.pimpinan.post');
+    Route::patch('/{id}nonaktifkan',[PimpinanRapatController::class, 'nonaktifkan'])->name('admin.pimpinan.nonaktifkan');
+    Route::patch('/{id}/aktifkan',[PimpinanRapatController::class, 'aktifkan'])->name('admin.pimpinan.aktifkan');
+    Route::delete('/',[PimpinanRapatController::class, 'delete'])->name('admin.pimpinan.delete');
 });

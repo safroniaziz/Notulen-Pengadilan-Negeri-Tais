@@ -41,16 +41,16 @@
     <table  cellspacing="0" cellpadding="0" style="width:100%" class="top">
         <tr >
             <td rowspan="4" style="width: 5% !important;" class="logo-koperasi"><img src="{{ asset('assets/images/logo_full.png') }}" style="width: 75px !important"></td>
-            <td style="width:95% !important;font-size:25px;" align="center"><b>PENGADILAN NEGERI TAIS KELAS II</b></td>
+            <td style="width:95% !important;font-size:25px; font-family:Arial, Helvetica, sans-serif" align="center"><b>PENGADILAN NEGERI TAIS KELAS II</b></td>
         </tr>
         <tr style="width: 100%">
-            <td colspan="3" style="text-align: center;">Jl. S. Parman No. 1, Talang Saling, Tais, 38576</td>
+            <td colspan="3" style="text-align: center; font-family:Arial, Helvetica, sans-serif">Jl. S. Parman No. 1, Talang Saling, Tais, 38576</td>
         </tr>
         <tr style="width: 100%">
-            <td colspan="3" style="text-align: center;">Telp. : (0736) 91047, Fax : (0736) 91313</td>
+            <td colspan="3" style="text-align: center; font-family:Arial, Helvetica, sans-serif">Telp. : (0736) 91047, Fax : (0736) 91313</td>
         </tr>
         <tr style="width: 100%">
-            <td colspan="3" style="text-align: center;">Website : www.pn-tais.go.id Email : pn_tais@yahoo.co.id</td>
+            <td colspan="3" style="text-align: center; font-family:Arial, Helvetica, sans-serif">Website : www.pn-tais.go.id Email : pn_tais@yahoo.co.id</td>
         </tr>
     </table>
     <hr style="height: 1px; background:black;">
@@ -81,33 +81,34 @@
                 {{ $data->tempat }}
             </td>
         </tr>
+        <tr>
+            <td>Tempat</td>
+            <td> : </td>
+            <td>
+                {{ $data->tempat }}
+            </td>
+        </tr>
 
         <tr>
             <td>Peserta</td>
             <td> : </td>
-            <td>
-                <p style="text-align: justify">
+            <td style="tett-align:justify">
                     {{ $data->peserta }}
-                </p>
             </td>
         </tr>
 
         <tr>
             <td>Notulis</td>
             <td> : </td>
-            <td>
-                <p style="text-align: justify">
+            <td style="tett-align:justify">
                     {{ $data->nm_user }}
-                </p>
             </td>
         </tr>
         <tr>
             <td>Materi Rapat</td>
             <td> : </td>
-            <td>
-                <p style="text-align: justify">
+            <td style="tett-align:justify">
                     {{ $data->materi_rapat }}
-                </p>
             </td>
         </tr>
     </table>
@@ -303,10 +304,12 @@
         <tr>
             <td style="text-align: center">
                 @if (!empty($ketua))
-                    {{ $ketua->nm_user }}
+                    {{ $ketua->nm_pimpinan }}
                 @endif
                 <hr style="width: 68%">
-                NIP.197711252001121001                     
+                NIP.   @if (!empty($ketua))
+                            {{ $ketua->nip }}
+                        @endif                 
             </td>
             <td></td>
             <td style="text-align: center">
