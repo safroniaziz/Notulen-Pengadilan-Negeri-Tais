@@ -85,7 +85,7 @@
         @endif
         <div class="left_col scroll-view" style="background: #013C62 !important;">
             <div class="navbar nav_title" style="border-bottom: 1px white solid; padding-bottom:5px 0px !important; background:#013C62;">
-                <a href="index.html" class="site_title" style="font-weight:600; font-size:16px"> <span>SIMPEG MAN IC BENTENG</span></a>
+                <a href="index.html" class="site_title" style="font-weight:600; font-size:16px"> <span>NOTULENSI RAPAT PN TAIS</span></a>
               </div>
             <div class="clearfix"></div>
 
@@ -118,7 +118,7 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small" style="background:#172D44;">
-                <p style="color:white;text-align:center; margin-bottom:0px; padding:5px;">Man IC Bengkulu Tengah</p>
+                <p style="color:white;text-align:center; margin-bottom:0px; padding:5px;">Pengadilan Negeri Tais</p>
             </div>
             <!-- /menu footer buttons -->
           </div>
