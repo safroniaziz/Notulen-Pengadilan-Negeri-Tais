@@ -18,7 +18,7 @@ class DashboardController extends Controller
         $notulen = count(Notulen::all());
         $notulis = count(User::where('level_user','notulis')->get());
         $admin = count(User::where('level_user','admin')->get());
-        $total = count(User::where('level_user','!=','ketua')->get());
+        $total = count(User::all());
         return view('administrator/dashboard',compact('notulen','notulis','admin','total'));
     }
 }

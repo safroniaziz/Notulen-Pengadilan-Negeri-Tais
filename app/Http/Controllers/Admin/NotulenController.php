@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dokumentasi;
 use App\Models\Notulen;
 use App\Models\Pimpinan;
 use App\Models\User;
@@ -26,11 +27,12 @@ class NotulenController extends Controller
 
     public function cetak($id){
         // return $id;
+        $dokumentasi = Dokumentasi::where('notulen_id',$id)->get();
         $ketua = Pimpinan::where('status','aktif')->first();
         $data = Notulen::join('users','users.id','notulens.notulis_id')->where('notulens.id',$id)->first();
         // return $data;
         // return $data;
-        $pdf = PDF::loadView('administrator/notulen/cetak',compact('data','ketua'));
+        $pdf = PDF::loadView('administrator/notulen/cetak',compact('data','ketua','dokumentasi'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream();
     }

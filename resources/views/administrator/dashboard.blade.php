@@ -44,98 +44,98 @@
         </div>
     </div>
 </section>
-    <div class="row">
-        <div class="col-md-12">
-            <section class="panel">
-                <header class="panel-heading" style="color: #ffffff;background-color: #074071;border-color: #fff000;border-image: none;border-style: solid solid none;border-width: 4px 0px 0;border-radius: 0;font-size: 14px;font-weight: 700;padding: 15px;">
-                    <i class="fa fa-bar-chart"></i>&nbsp;Informasi Data Aplikasi
-                </header>
-                <div class="panel-body" style="border-top: 1px solid #eee; padding:15px; background:white;">
-                    <div class="row">
-                        <div class="col-lg-3 col-xs-3 col-md-3" style="padding-bottom:10px !important;">
-                            <!-- small box -->
-                            <div class="small-box bg-aqua" style="margin-bottom:0px;">
-                                <div class="inner">
-                                <h3>
-                                    @if ($notulen != null)
-                                        {{ $notulen }}
-                                        @else
-                                        -
-                                    @endif
-                                </h3>
-        
-                                <p>Pendidikan Terakhir</p>
-                                </div>
-                                <div class="icon">
-                                <i class="fa fa-list"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading" style="color: #ffffff;background-color: #074071;border-color: #fff000;border-image: none;border-style: solid solid none;border-width: 4px 0px 0;border-radius: 0;font-size: 14px;font-weight: 700;padding: 15px;">
+                <i class="fa fa-bar-chart"></i>&nbsp;Informasi Data Aplikasi
+            </header>
+            <div class="panel-body" style="border-top: 1px solid #eee; padding:15px; background:white;">
+                <div class="row">
+                    <div class="col-lg-3 col-xs-3 col-md-3" style="padding-bottom:10px !important;">
+                        <!-- small box -->
+                        <div class="small-box bg-aqua" style="margin-bottom:0px;">
+                            <div class="inner">
+                            <h3>
+                                @if ($notulen != null)
+                                    {{ $notulen }}
+                                    @else
+                                    -
+                                @endif
+                            </h3>
+    
+                            <p>Jumlah Notulen</p>
                             </div>
+                            <div class="icon">
+                            <i class="fa fa-list"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
-                        <div class="col-lg-3 col-xs-3 col-md-3" style="padding-bottom:10px !important;">
-                            <!-- small box -->
-                            <div class="small-box bg-red" style="margin-bottom:0px;">
-                                <div class="inner">
-                                <h3>
-                                    @if ($notulis != null)
-                                        {{ $notulis }}
-                                        @else
-                                        -
-                                    @endif
-                                </h3>
-        
-                                <p>Nama Jabatan</p>
-                                </div>
-                                <div class="icon">
-                                <i class="fa fa-list-alt"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                    <div class="col-lg-3 col-xs-3 col-md-3" style="padding-bottom:10px !important;">
+                        <!-- small box -->
+                        <div class="small-box bg-red" style="margin-bottom:0px;">
+                            <div class="inner">
+                            <h3>
+                                @if ($notulis != null)
+                                    {{ $notulis }}
+                                    @else
+                                    -
+                                @endif
+                            </h3>
+    
+                            <p>Jumlah Notulis</p>
                             </div>
+                            <div class="icon">
+                            <i class="fa fa-list-alt"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
-                        <div class="col-lg-3 col-xs-3 col-md-3" style="padding-bottom:10px !important;">
-                            <!-- small box -->
-                            <div class="small-box bg-yellow" style="margin-bottom:0px;">
-                                <div class="inner">
-                                <h3>
-                                    @if ($admin != null)
-                                        {{ $admin }}
-                                        @else
-                                        -
-                                    @endif
-                                </h3>
-        
-                                <p>Golongan Terakhir</p>
-                                </div>
-                                <div class="icon">
-                                <i class="fa fa-wpforms"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                    <div class="col-lg-3 col-xs-3 col-md-3" style="padding-bottom:10px !important;">
+                        <!-- small box -->
+                        <div class="small-box bg-yellow" style="margin-bottom:0px;">
+                            <div class="inner">
+                            <h3>
+                                @if ($admin != null)
+                                    {{ $admin }}
+                                    @else
+                                    -
+                                @endif
+                            </h3>
+    
+                            <p>Jumlah Admin</p>
                             </div>
+                            <div class="icon">
+                            <i class="fa fa-wpforms"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
-                        <div class="col-lg-3 col-xs-3 col-md-3" style="padding-bottom:10px !important;">
-                            <!-- small box -->
-                            <div class="small-box bg-green" style="margin-bottom:0px;">
-                                <div class="inner">
-                                <h3>
-                                   @if ($total != null)
-                                       {{ $total }}
-                                       @else
-                                       -
-                                   @endif
-                                </h3>
-        
-                                <p>Status Pegawai</p>
-                                </div>
-                                <div class="icon">
-                                <i class="fa fa-check-circle"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                    <div class="col-lg-3 col-xs-3 col-md-3" style="padding-bottom:10px !important;">
+                        <!-- small box -->
+                        <div class="small-box bg-green" style="margin-bottom:0px;">
+                            <div class="inner">
+                            <h3>
+                               @if (!empty($total))
+                                   {{ $total }}
+                                   @else
+                                   -
+                               @endif
+                            </h3>
+    
+                            <p>Jumlah User </p>
                             </div>
+                            <div class="icon">
+                            <i class="fa fa-check-circle"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </div>
+</div>
 
 @endsection

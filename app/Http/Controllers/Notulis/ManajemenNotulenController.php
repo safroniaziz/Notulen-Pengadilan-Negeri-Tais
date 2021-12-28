@@ -101,7 +101,7 @@ class ManajemenNotulenController extends Controller
             'dokumentasi'               =>  'Dokumentasi',
         ];
         $this->validate($request, [
-            'dokumentasi'               =>  'required|max:500',
+            'dokumentasi'               =>  'required|max:1500',
         ],$messages,$attributes);
 
         $model['dokumentasi'] = null;

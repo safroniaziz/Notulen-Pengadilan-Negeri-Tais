@@ -7,10 +7,12 @@
     <title>Cetak Notulen</title>
 </head>
 <style>
+    .page_break { page-break-before: always; }
+
     .img-top {
         opacity: 0.6;
     }
-    table, tr, td {
+    .top, tr, td {
         border: none !important;
         border-collapse: collapse;
     }
@@ -40,17 +42,17 @@
 <body>
     <table  cellspacing="0" cellpadding="0" style="width:100%" class="top">
         <tr >
-            <td rowspan="4" style="width: 5% !important;" class="logo-koperasi"><img src="{{ asset('assets/images/logo-bw.png') }}" style="width: 85px !important"></td>
-            <td style="width:95% !important;font-size:25px; font-family:Arial, Helvetica, sans-serif" align="center"><b>PENGADILAN NEGERI TAIS KELAS II</b></td>
+            <td rowspan="4" style="width: 5% !important;" class="logo-koperasi"><img src="{{ asset('assets/images/logo-bw.png') }}" style="width: 75px !important"></td>
+            <td style="width:95% !important;font-size:25px;" align="center"><b>PENGADILAN NEGERI TAIS KELAS II</b></td>
         </tr>
         <tr style="width: 100%">
-            <td colspan="3" style="text-align: center; font-family:Arial, Helvetica, sans-serif">Jl. S. Parman No. 1, Talang Saling, Tais, 38576</td>
+            <td colspan="3" style="text-align: center;">Jl. S. Parman No. 1, Talang Saling, Tais, 38576</td>
         </tr>
         <tr style="width: 100%">
-            <td colspan="3" style="text-align: center; font-family:Arial, Helvetica, sans-serif">Telp. : (0736) 91047, Fax : (0736) 91313</td>
+            <td colspan="3" style="text-align: center;">Telp. : (0736) 91047, Fax : (0736) 91313</td>
         </tr>
         <tr style="width: 100%">
-            <td colspan="3" style="text-align: center; font-family:Arial, Helvetica, sans-serif">Website : www.pn-tais.go.id Email : pn_tais@yahoo.co.id</td>
+            <td colspan="3" style="text-align: center;">Website : www.pn-tais.go.id Email : pn_tais@yahoo.co.id</td>
         </tr>
     </table>
     <hr style="height: 1px; background:black;">
@@ -81,34 +83,28 @@
                 {{ $data->tempat }}
             </td>
         </tr>
-        <tr>
-            <td>Tempat</td>
-            <td> : </td>
-            <td>
-                {{ $data->tempat }}
-            </td>
-        </tr>
 
         <tr>
             <td>Peserta</td>
             <td> : </td>
-            <td style="tett-align:justify">
-                    {{ $data->peserta }}
+            <td>
+                {{ $data->peserta }}
             </td>
         </tr>
 
         <tr>
             <td>Notulis</td>
             <td> : </td>
-            <td style="tett-align:justify">
-                    {{ $data->nm_user }}
+            <td>
+                {{ $data->nm_user }}
             </td>
         </tr>
+
         <tr>
-            <td style="margin-top: -2px !important;">Materi Rapat</td>
+            <td>Materi Rapat</td>
             <td> : </td>
-            <td style="tett-align:justify">
-                    {{ $data->materi_rapat }}
+            <td>
+                {{ $data->materi_rapat }}
             </td>
         </tr>
     </table>
@@ -124,7 +120,7 @@
         <tr style="margin-bottom: 100px;">
             <td style="width: 40%; text-align:center;">Mengetahui</td>
             <td></td>
-            <td style="width:30%;text-align:center !important;">Bengkulu, {{ \Carbon\Carbon::parse(now())->format('j F Y') }}</td>
+            <td style="width:30%;text-align:center !important;">Bengkulu, {{ $data->tanggal->isoFormat('D MMMM Y'); }}</td>
         </tr>
         <tr>
             <td style="text-align: center">Ketua Pengadilan Negeri Tais</td>
@@ -322,22 +318,15 @@
 
     <div class="page_break"></div>
     <h4 style="text-align: center">Dokumentasi Rapat</h4>
-    <table style="width: 100%;border-collapse: collapse; border:1px black solid;">
-        <thead>
-            <tr style="border:1px black solid;">
-                <th>No</th>
-                <th>Dokumentasi</th>
-            </tr>
-        </thead>
+    <table style="width: 100%;border-collapse: collapse;">
         <tbody>
             @php
                 $no=1;
             @endphp
             @foreach ($dokumentasi as $dokumentasi)
-                <tr style="border:1px black solid !important; border-collapse:collapse">
-                    <td style="border:1px black solid !important; border-collapse:collapse">{{ $no++ }}</td>
-                    <td style="padding-top: 5px !important;border:1px black solid; border-collapse:collapse">
-                        <img style="height:200px;" src="{{ asset('dokumentasi/'.$dokumentasi->dokumentasi) }}" alt="">
+                <tr style="border-collapse:collapse">
+                    <td style="padding-top: 5px !important;border-collapse:collapse;text-align:center">
+                        <img style="width:300px;" src="{{ asset('dokumentasi/'.$dokumentasi->dokumentasi) }}" alt="">
                     </td>
                 </tr>
             @endforeach

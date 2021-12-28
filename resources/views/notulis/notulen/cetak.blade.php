@@ -88,9 +88,7 @@
             <td>Peserta</td>
             <td> : </td>
             <td>
-                <p style="text-align: justify">
-                    {{ $data->peserta }}
-                </p>
+                {{ $data->peserta }}
             </td>
         </tr>
 
@@ -98,18 +96,15 @@
             <td>Notulis</td>
             <td> : </td>
             <td>
-                <p style="text-align: justify">
-                    {{ $data->nm_user }}
-                </p>
+                {{ $data->nm_user }}
             </td>
         </tr>
+
         <tr>
             <td>Materi Rapat</td>
             <td> : </td>
             <td>
-                <p style="text-align: justify">
-                    {{ $data->materi_rapat }}
-                </p>
+                {{ $data->materi_rapat }}
             </td>
         </tr>
     </table>
@@ -125,7 +120,7 @@
         <tr style="margin-bottom: 100px;">
             <td style="width: 40%; text-align:center;">Mengetahui</td>
             <td></td>
-            <td style="width:30%;text-align:center !important;">Bengkulu, {{ \Carbon\Carbon::parse(now())->format('j F Y') }}</td>
+            <td style="width:30%;text-align:center !important;">Bengkulu, {{ $data->tanggal->isoFormat('D MMMM Y'); }}</td>
         </tr>
         <tr>
             <td style="text-align: center">Ketua Pengadilan Negeri Tais</td>
@@ -305,10 +300,12 @@
         <tr>
             <td style="text-align: center">
                 @if (!empty($ketua))
-                    {{ $ketua->nm_user }}
+                    {{ $ketua->nm_pimpinan }}
                 @endif
                 <hr style="width: 68%">
-                NIP.197711252001121001                     
+                NIP.   @if (!empty($ketua))
+                            {{ $ketua->nip }}
+                        @endif                 
             </td>
             <td></td>
             <td style="text-align: center">
@@ -321,22 +318,15 @@
 
     <div class="page_break"></div>
     <h4 style="text-align: center">Dokumentasi Rapat</h4>
-    <table style="width: 100%;border-collapse: collapse; border:1px black solid;">
-        <thead>
-            <tr style="border:1px black solid;">
-                <th>No</th>
-                <th>Dokumentasi</th>
-            </tr>
-        </thead>
+    <table style="width: 100%;border-collapse: collapse;">
         <tbody>
             @php
                 $no=1;
             @endphp
             @foreach ($dokumentasi as $dokumentasi)
-                <tr style="border:1px black solid !important; border-collapse:collapse">
-                    <td style="border:1px black solid !important; border-collapse:collapse">{{ $no++ }}</td>
-                    <td style="padding-top: 5px !important;border:1px black solid; border-collapse:collapse">
-                        <img style="height:200px;" src="{{ asset('dokumentasi/'.$dokumentasi->dokumentasi) }}" alt="">
+                <tr style="border-collapse:collapse">
+                    <td style="padding-top: 5px !important;border-collapse:collapse;text-align:center">
+                        <img style="width:300px;" src="{{ asset('dokumentasi/'.$dokumentasi->dokumentasi) }}" alt="">
                     </td>
                 </tr>
             @endforeach
