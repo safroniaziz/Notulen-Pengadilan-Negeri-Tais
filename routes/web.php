@@ -48,6 +48,7 @@ Route::group(['prefix'  => 'administrator/manajemen_notulen'],function(){
 
 Route::group(['prefix'  => 'notulis/'],function(){
     Route::get('/',[NotulisDashboardController::class, 'dashboard'])->name('notulis.dashboard');
+    Route::patch('/update_password',[NotulisDashboardController::class, 'updatePassword'])->name('notulis.notulen.update_password');
 });
 
 Route::group(['prefix'  => 'notulis/manajemen_notulen'],function(){
@@ -55,6 +56,10 @@ Route::group(['prefix'  => 'notulis/manajemen_notulen'],function(){
     Route::get('/add',[ManajemenNotulenController::class, 'add'])->name('notulis.notulen.add');
     Route::post('/',[ManajemenNotulenController::class, 'post'])->name('notulis.notulen.post');
     Route::delete('/{id}',[ManajemenNotulenController::class, 'delete'])->name('notulis.notulen.delete');
+    Route::get('/cetak/{id}',[ManajemenNotulenController::class,'cetak'])->name('notulis.notulen.cetak');
+    Route::get('/dokumentasi/{id}',[ManajemenNotulenController::class,'dokumentasi'])->name('notulis.notulen.dokumentasi');
+    Route::post('/dokumentasi',[ManajemenNotulenController::class,'dokumentasiPost'])->name('notulis.notulen.dokumentasiPost');
+    Route::delete('{id}/dokumentasi//{notulen_id}',[ManajemenNotulenController::class,'dokumentasiDelete'])->name('notulis.notulen.dokumentasiDelete');
 });
 
 Route::group(['prefix'  => 'administrator/manajemen_pimpinan'],function(){

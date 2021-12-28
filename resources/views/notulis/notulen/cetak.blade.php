@@ -7,10 +7,12 @@
     <title>Cetak Notulen</title>
 </head>
 <style>
+    .page_break { page-break-before: always; }
+
     .img-top {
         opacity: 0.6;
     }
-    table, tr, td {
+    .top, tr, td {
         border: none !important;
         border-collapse: collapse;
     }
@@ -40,7 +42,7 @@
 <body>
     <table  cellspacing="0" cellpadding="0" style="width:100%" class="top">
         <tr >
-            <td rowspan="4" style="width: 5% !important;" class="logo-koperasi"><img src="{{ asset('assets/images/logo_full.png') }}" style="width: 75px !important"></td>
+            <td rowspan="4" style="width: 5% !important;" class="logo-koperasi"><img src="{{ asset('assets/images/logo-bw.png') }}" style="width: 75px !important"></td>
             <td style="width:95% !important;font-size:25px;" align="center"><b>PENGADILAN NEGERI TAIS KELAS II</b></td>
         </tr>
         <tr style="width: 100%">
@@ -315,6 +317,30 @@
                 @endif
             </td>
         </tr>
+    </table>
+
+    <div class="page_break"></div>
+    <h4 style="text-align: center">Dokumentasi Rapat</h4>
+    <table style="width: 100%;border-collapse: collapse; border:1px black solid;">
+        <thead>
+            <tr style="border:1px black solid;">
+                <th>No</th>
+                <th>Dokumentasi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php
+                $no=1;
+            @endphp
+            @foreach ($dokumentasi as $dokumentasi)
+                <tr style="border:1px black solid !important; border-collapse:collapse">
+                    <td style="border:1px black solid !important; border-collapse:collapse">{{ $no++ }}</td>
+                    <td style="padding-top: 5px !important;border:1px black solid; border-collapse:collapse">
+                        <img style="height:200px;" src="{{ asset('dokumentasi/'.$dokumentasi->dokumentasi) }}" alt="">
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
     </table>
 </body>
 </html>

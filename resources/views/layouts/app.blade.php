@@ -138,7 +138,7 @@
                         @yield('user-login2')
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                         <a class="dropdown-item text-danger" href="{{ route('logout') }}"
+                      <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             <i class="fa fa-power-off text-danger pull-right"></i>{{ __('Logout') }}

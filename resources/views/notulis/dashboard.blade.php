@@ -41,6 +41,46 @@
     <div class="panel-body" style="border-top: 1px solid #eee; padding:15px; background:white;">
         <div class="row" style="margin-right:-15px; margin-left:-15px;">
             <div class="col-md-12">Selamat datang <strong> {{ Auth::user()->pegNama }} </strong> di halaman dashboard pada<b> Aplikasi Notulensi Rapat Pengadilan Negeri Tais</b></div>
+            <div class="col-md-12">
+                <a onclick="ubahPassword( {{ Auth::user()->id }} )" class="btn btn-primary btn-sm" style="color:white; cursor:pointer;"><i class="fa fa-key"></i>&nbsp; Ubah Password</a>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Ubah Password-->
+    <div class="modal fade" id="formubahpassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action=" {{ route('notulis.notulen.update_password') }} " method="POST">
+                {{ csrf_field() }} {{ method_field('PATCH') }}
+                <div class="modal-header">
+                    <p style="font-size:15px; font-weight:bold;" class="modal-title"><i class="fa fa-key"></i>&nbsp;Form Ubah Password Notulis</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="hidden" name="id" id="id_password">
+                            <div class="form-group">
+                                <label for="">Masukan Password Baru :</label>
+                                <input type="password" name="password_baru" id="password_baru" class="form-control" placeholder="password baru">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Ulangi Password Baru :</label>
+                                <input type="password" name="password_ulangi" id="password_ulangi" class="form-control" placeholder="ulangi password baru">
+                                <small id="konfirmasi" style="display:none;" class="form-text text-success"><i>password sama</i></small>
+                                <small id="konfirmasi-gagal" style="display:none;" class="form-text text-danger"><i>password tidak sama</i></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batalkan</button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn-submit" disabled><i class="fa fa-check-circle"></i>&nbsp; Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
         </div>
     </div>
 </section>
@@ -64,7 +104,7 @@
                                     @endif
                                 </h3>
         
-                                <p>Pendidikan Terakhir</p>
+                                <p>Jumlah Notulen</p>
                                 </div>
                                 <div class="icon">
                                 <i class="fa fa-list"></i>
@@ -84,7 +124,7 @@
                                     @endif
                                 </h3>
         
-                                <p>Nama Jabatan</p>
+                                <p>Jumlah Notulis</p>
                                 </div>
                                 <div class="icon">
                                 <i class="fa fa-list-alt"></i>
@@ -104,7 +144,7 @@
                                     @endif
                                 </h3>
         
-                                <p>Golongan Terakhir</p>
+                                <p>Jumlah Admin</p>
                                 </div>
                                 <div class="icon">
                                 <i class="fa fa-wpforms"></i>
@@ -117,14 +157,14 @@
                             <div class="small-box bg-green" style="margin-bottom:0px;">
                                 <div class="inner">
                                 <h3>
-                                   @if ($total != null)
+                                   @if (!empty($total))
                                        {{ $total }}
                                        @else
                                        -
                                    @endif
                                 </h3>
         
-                                <p>Status Pegawai</p>
+                                <p>Jumlah User </p>
                                 </div>
                                 <div class="icon">
                                 <i class="fa fa-check-circle"></i>
@@ -139,3 +179,29 @@
     </div>
 
 @endsection
+
+@push('scripts')
+    <script>
+        function ubahPassword(id){
+            $('#formubahpassword').modal('show');
+            $("#id_password").val(id);
+        }
+
+        $(document).ready(function(){
+            $("#password_baru, #password_ulangi").keyup(function(){
+                var password = $("#password_baru").val();
+                var ulangi = $("#password_ulangi").val();
+                if($("#password_baru").val() == $("#password_ulangi").val()){
+                    $('#konfirmasi').show(100);
+                    $('#konfirmasi-gagal').hide(100);
+                    $('#btn-submit').attr("disabled",false);
+                }
+                else{
+                    $('#konfirmasi').hide(100);
+                    $('#konfirmasi-gagal').show(100);
+                    $('#btn-submit').attr("disabled",true);
+                }
+            });
+        });
+    </script>
+@endpush

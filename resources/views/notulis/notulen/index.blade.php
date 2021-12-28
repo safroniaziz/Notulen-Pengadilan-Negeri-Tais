@@ -1,3 +1,6 @@
+@php
+    use App\Models\Dokumentasi;
+@endphp
 @extends('layouts.app')
 @section('title', 'Manajemen Data Notulen')
 @section('login_as', 'Notulis')
@@ -67,7 +70,8 @@
                                 <th style="text-align:center">Notulis</th>
                                 <th style="text-align:center">Materi Rapat</th>
                                 <th style="text-align:center">Risalah Rapat</th>
-                                <th style="text-align:center">Hapus</th>
+                                <th style="text-align:center">Dokumentasi</th>
+                                <th style="text-align:center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,6 +79,9 @@
                                 $no=1;
                             @endphp
                             @foreach ($notulens as $notulens)
+                                @php
+                                    $dokumentasi = count(Dokumentasi::where('notulen_id',$notulens->id)->get());
+                                @endphp
                                 <tr>
                                     <td style="text-align:center;;"> {{ $no++ }} </td>
                                     <td style="text-align:center;"> {{ $notulens->hari }} </td>
@@ -86,6 +93,16 @@
                                     <td style="text-align:center;"> {{ $notulens->materi_rapat }} </td>
                                     <td style="text-align:center;"> {!! $notulens->risalah_rapat !!} </td>
                                     <td style="text-align:center;">
+                                        @if ($dokumentasi < 1)
+                                            <a style="color: red">tidak ada dokumentasi</a>
+                                            @else
+                                            {{ $dokumentasi }} Dokumen
+                                        @endif
+                                        <hr>
+                                        <a href="{{ route('notulis.notulen.dokumentasi',[$notulens->id]) }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Tambah</a>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <a href="{{ route('notulis.notulen.cetak',[$notulens->id]) }}" target="_blank" class="btn btn-primary btn-sm"><i class="fa fa-file-pdf-o"></i>&nbsp; Cetak</a>
                                         <form action="{{ route('notulis.notulen.delete',[$notulens->id]) }}" method="POST">
                                             {{ csrf_field() }} {{ method_field("DELETE") }}
                                             <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>&nbsp; Hapus</button>
