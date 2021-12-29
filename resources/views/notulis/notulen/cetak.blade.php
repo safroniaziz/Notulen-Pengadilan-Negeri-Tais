@@ -42,7 +42,7 @@
 <body>
     <table  cellspacing="0" cellpadding="0" style="width:100%" class="top">
         <tr >
-            <td rowspan="4" style="width: 5% !important;" class="logo-koperasi"><img src="{{ asset('assets/images/logo-bw.png') }}" style="width: 75px !important"></td>
+            <td rowspan="4" style="width: 5% !important;" class="logo-koperasi"><img src="{{ asset('assets/images/logo-bw.jpg') }}" style="height: 110px !important"></td>
             <td style="width:95% !important;font-size:25px;" align="center"><b>PENGADILAN NEGERI TAIS KELAS II</b></td>
         </tr>
         <tr style="width: 100%">
@@ -326,7 +326,7 @@
             @foreach ($dokumentasi as $dokumentasi)
                 <tr style="border-collapse:collapse">
                     <td style="padding-top: 5px !important;border-collapse:collapse;text-align:center">
-                        <img style="width:300px;" src="{{ asset('dokumentasi/'.$dokumentasi->dokumentasi) }}" alt="">
+                        <img style="height:315px !important;" src="{{ asset('dokumentasi/'.$dokumentasi->dokumentasi) }}" alt="">
                     </td>
                 </tr>
             @endforeach
